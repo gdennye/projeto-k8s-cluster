@@ -1,0 +1,6 @@
+---
+# vars file for install-monit-tools
+url_repo_helm: https://prometheus-community.github.io/helm-charts
+release_name: prometheus
+deploy_prometheus: prometheus-community/kube-prometheus-stack
+k8s_url_metrics: https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml

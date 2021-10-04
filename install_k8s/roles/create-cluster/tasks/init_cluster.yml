@@ -10,7 +10,6 @@
   register: kubeadm_init
   changed_when: '"initialized successfully" in kubeadm_init.stdout'
 
-
 - name: Criando o diretorio .kube
   file:
     path: ~/.kube
@@ -52,4 +51,3 @@
 - name: Imprimindo o Hash
   debug:
     msg: "[MASTER] K8S_TOKEN_HOLDER - O hash eh {{ hostvars['K8S_TOKEN_HOLDER']['hash'] }}"
-

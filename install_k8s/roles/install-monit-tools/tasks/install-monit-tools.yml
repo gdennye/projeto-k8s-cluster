@@ -1,0 +1,22 @@
+- name: helm add repo
+  shell: helm repo add prometheus-community {{ url_repo_helm }}
+  register: prometheus_add_repo
+
+- name: helm update
+  shell: helm repo update
+  register: prometheus_repo_update
+
+- name: Instalando o Prometheus Operator
+  shell: helm install {{ release_name }} {{ deploy_prometheus }}
+  ignore_errors: true
+  register: prometheus_install
+
+- name: Copiando arquivo de deploy do Metrics Server
+  copy:
+    src: deploy_metrics_server.yaml
+    dest: /tmp/deploy_metrics_server.yaml
+  register: install_metrics_server
+
+- name: Instalando/Atualizando o Metrics Server
+  shell: kubectl apply -f /tmp/deploy_metrics_server.yaml
+  register: deploy_metrics_server

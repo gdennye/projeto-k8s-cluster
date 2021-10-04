@@ -2,11 +2,12 @@
   apt:
     name:
       - python-pip
+      - python3.6-dev
+      - libmysqlclient-dev
 
 - name: Instalando dependencias do modulos do k8s
   pip:
     name:
-      - chatterbot-corpus
       - openshift
       - PyYAML
 

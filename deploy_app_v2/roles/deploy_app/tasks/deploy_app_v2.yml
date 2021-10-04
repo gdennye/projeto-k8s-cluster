@@ -6,6 +6,7 @@
 - name: Instalando dependencias do modulos do k8s
   pip:
     name:
+      - chatterbot-corpus
       - openshift
       - PyYAML
 

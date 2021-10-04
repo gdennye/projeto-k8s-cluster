@@ -11,6 +11,13 @@
   notify: Restart Docker
   register: instalando_docker
 
+- name: Making systemd as Cgroup Driver...
+  copy:
+    src: daemon.json
+    dest: /etc/docker/daemon.json
+  notify: Restart Docker
+  register: cgroup_docker
+
 - name: Removendo script Instalacao Docker
   file:
     path: "{{ dst_docker_script }}"
@@ -36,5 +43,3 @@
     - kubeadm
     - kubectl
   notify: Restart Kubelet
-
-

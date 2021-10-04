@@ -6,7 +6,7 @@
 
 - name: Inicializando o cluster k8s
   command:
-    kubeadm init
+    kubeadm init --pod-network-cidr=10.240.0.0/16 --ignore-preflight-errors=NumCPU --ignore-preflight-errors=Mem
   register: kubeadm_init
   changed_when: '"initialized successfully" in kubeadm_init.stdout'
 

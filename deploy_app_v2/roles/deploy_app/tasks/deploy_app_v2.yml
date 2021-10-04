@@ -1,12 +1,10 @@
 - name: Instalando o pip
   apt:
-    name:
-      - python-pip
-      - python3.6-dev
-      - libmysqlclient-dev
+    name: python-pip
+    state: present
 
 - name: Instalando dependencias do modulos do k8s
-  pip3:
+  pip:
     name:
       - openshift
       - PyYAML

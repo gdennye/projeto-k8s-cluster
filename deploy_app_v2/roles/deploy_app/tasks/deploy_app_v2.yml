@@ -6,7 +6,7 @@
       - libmysqlclient-dev
 
 - name: Instalando dependencias do modulos do k8s
-  pip:
+  pip3:
     name:
       - openshift
       - PyYAML
